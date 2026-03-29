@@ -76,8 +76,8 @@ button {
 
 .brand-mark span {
   display: block;
-  width: 6px;
-  height: 18px;
+  width: 8px;
+  height: 24px;
   border-radius: 99px;
   background: linear-gradient(180deg, #7d7be4, #5a57c5);
 }
@@ -94,6 +94,7 @@ button {
   font-size: 2rem;
   font-weight: 700;
   letter-spacing: -0.02em;
+  line-height: 0.9;
 }
 
 .boards-panel {
@@ -153,7 +154,7 @@ button {
 
 .theme-icon {
   font-size: 1rem;
-  line-height: 1;
+  line-height: 0.9;
 }
 
 .sun-icon {
@@ -259,7 +260,7 @@ body.dark .toggle-thumb {
   margin: 0;
   font-size: 1.5rem;
   font-weight: 700;
-  line-height: 1.25;
+  line-height: 1.1;
 }
 
 .primary-button {
