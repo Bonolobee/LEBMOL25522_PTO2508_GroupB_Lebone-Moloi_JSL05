@@ -1,7 +1,7 @@
 import { loadTasksFromStorage, saveTasksToStorage } from "../utils/localStorage.js";
 import { renderBoard } from "../ui/render.js";
 import { setupModalHandlers } from "../ui/modalHandlers.js";
-import { createTask } from "../tasks/taskManager.js";
+import { createTask, deleteTaskById, updateTask } from "../tasks/taskManager.js";
 
 /**
  * Collects the shared DOM elements used throughout the application.
@@ -17,6 +17,9 @@ function getDomElements() {
     taskTitle: document.getElementById("taskTitle"),
     taskDescription: document.getElementById("taskDescription"),
     taskStatus: document.getElementById("taskStatus"),
+    modalTitle: document.getElementById("modalTitle"),
+    submitTaskBtn: document.getElementById("submitTaskBtn"),
+    deleteTaskBtn: document.getElementById("deleteTaskBtn"),
     titleError: document.getElementById("titleError"),
     descriptionError: document.getElementById("descriptionError"),
     themeToggle: document.getElementById("themeToggle"),
@@ -64,9 +67,22 @@ function initTaskBoard() {
   }
 
   setupModalHandlers(elements, {
+    getTaskById(taskId) {
+      return tasks.find((task) => task.id === taskId) ?? null;
+    },
     onCreateTask(taskInput) {
       const newTask = createTask(tasks, taskInput);
       tasks = [...tasks, newTask];
+      saveTasksToStorage(tasks);
+      render();
+    },
+    onUpdateTask(taskId, taskInput) {
+      tasks = updateTask(tasks, taskId, taskInput);
+      saveTasksToStorage(tasks);
+      render();
+    },
+    onDeleteTask(taskId) {
+      tasks = deleteTaskById(tasks, taskId);
       saveTasksToStorage(tasks);
       render();
     },

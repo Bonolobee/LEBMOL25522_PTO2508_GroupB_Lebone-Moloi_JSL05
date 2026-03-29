@@ -337,6 +337,8 @@ body.dark .toggle-thumb {
   box-shadow: var(--shadow);
   padding: 14px 12px;
   min-height: 40px;
+  text-align: left;
+  width: 100%;
 }
 
 .task-title {
@@ -434,6 +436,25 @@ textarea {
 
 .submit-button {
   width: 100%;
+}
+
+.modal-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.destructive-button {
+  border: none;
+  background: var(--danger);
+  color: #fff;
+  padding: 14px 18px;
+  border-radius: 999px;
+  font-weight: 700;
+}
+
+.destructive-button:hover {
+  background: #ff9898;
 }
 
 .hidden {
@@ -534,5 +555,9 @@ body.dark select {
   .hide-sidebar,
   .theme-toggle {
     display: none !important;
+  }
+
+  .modal-actions {
+    grid-template-columns: 1fr;
   }
 }

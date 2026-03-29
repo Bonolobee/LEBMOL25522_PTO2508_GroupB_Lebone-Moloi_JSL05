@@ -37,7 +37,7 @@
             <span class="theme-icon moon-icon" aria-hidden="true">&#127761;</span>
           </button>
           <button class="hide-sidebar" id="hideSidebarBtn" type="button">
-            <span class="hide-icon" aria-hidden="true">&#9940;</span>
+            <span class="hide-icon" aria-hidden="true">🚫</span>
             <span>Hide Sidebar</span>
           </button>
         </div>
@@ -136,9 +136,14 @@
             </select>
           </label>
 
-          <button class="primary-button submit-button" type="submit">
-            <span class="button-label">Create Task</span>
-          </button>
+          <div class="modal-actions">
+            <button class="primary-button submit-button" id="submitTaskBtn" type="submit">
+              <span class="button-label">Create Task</span>
+            </button>
+            <button class="destructive-button hidden" id="deleteTaskBtn" type="button">
+              Delete Task
+            </button>
+          </div>
         </form>
       </section>
     </div>
